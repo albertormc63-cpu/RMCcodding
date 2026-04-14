@@ -1,0 +1,6 @@
+///Para leer Excel
+npm init -y
+npm install xlsx
+
+////Para abrir un cuadro de file picker 
+npm install prompt-sync

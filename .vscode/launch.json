@@ -1,0 +1,20 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "extendscript-debug",
+      "request": "launch",
+      "name": "RMC Optimizador",
+      "hostAppSpecifier": "illustrator",
+      "script": "${workspaceFolder}/jsx/RMC-Optimizador.jsx"
+    }
+    ,
+    {
+      "type": "extendscript-debug",
+      "request": "launch",
+      "name": "Testing",
+      "hostAppSpecifier": "illustrator",
+      "script": "${workspaceFolder}/jsx/js/readExcel.jsx"
+    }
+  ]
+}
