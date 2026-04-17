@@ -22,12 +22,13 @@ const data = XLSX.utils.sheet_to_json(sheet, {
 // 3. Headers (fila 16)
 const headers = data[15];
 
-// índices fijos (ya confirmaste que siempre vienen igual)
+// índices fijos (siempre vienen igual)
 const idxStyle = headers.indexOf("Style");
 const idxFirstName = headers.indexOf("First Name");
 const idxLastName = headers.indexOf("Last Name");
 const idxPlayer = headers.indexOf("Player#");
 const idxSize = headers.indexOf("Size");
+const idxPosition = headers.indexOf("Position");
 
 // 4. Filas reales
 const rows = data.slice(16);
@@ -41,7 +42,8 @@ const rows = data.slice(16);
     size: row[idxSize],
     firstName: row[idxFirstName],
     lastName: row[idxLastName],
-    player: (row[idxPlayer] !== "") ? Number(row[idxPlayer]) : null
+    player: (row[idxPlayer] !== "") ? Number(row[idxPlayer]) : null,
+    position: row[idxPosition]
   }));
 
 // 5. Guardar JSON

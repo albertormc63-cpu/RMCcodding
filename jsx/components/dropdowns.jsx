@@ -16,14 +16,14 @@ function dialogDropdowns() {
     // STYLE
     var styleGroup = grupo.add("group");
     styleGroup.add("statictext", undefined, "Style:");
-    var styleDropdown = styleGroup.add("dropdownlist", undefined, ["A", "W", "Y", "G"]);
+    var styleDropdown = styleGroup.add("dropdownlist", undefined, ["A", "W", "Y", "G", "I"]);
     styleDropdown.selection = 0;
 
     // SIZE
     var sizeGroup = grupo.add("group");
     sizeGroup.add("statictext", undefined, "Size:");
     var sizeDropdown = sizeGroup.add("dropdownlist", undefined, [
-        "XSM","SML","MED","LGE","XLG","2XL","3XL","4XL"
+        "XSM","SML","MED","LGE","XLG","2XL","3XL","4XL", "ALL"
     ]);
     sizeDropdown.selection = 0;
 
@@ -86,12 +86,6 @@ function flujoControlado(){
         alert("⚠️ El archivo no coincide. Intenta de nuevo.");
 
     }
-    // DEBUG
-    alert(
-    "Validación correcta:\n" +
-    "Style: " + config.style +
-    "\nSize: " + config.size
-    );
     return config;
 }
 

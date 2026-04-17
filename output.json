@@ -1,66 +1,92 @@
 [
   {
-    "style": "T1260W",
-    "variant": "W",
-    "size": "MED",
+    "style": "T1220Y",
+    "variant": "Y",
+    "size": "SML",
     "firstName": "",
-    "lastName": "",
-    "player": 24
+    "lastName": "BLACKBURN",
+    "player": 22,
+    "position": ""
   },
   {
-    "style": "T1260W",
-    "variant": "W",
-    "size": "MED",
+    "style": "T1220Y",
+    "variant": "Y",
+    "size": "SML",
     "firstName": "",
-    "lastName": "",
-    "player": 0
+    "lastName": "BLACKBURN",
+    "player": 4,
+    "position": ""
   },
   {
-    "style": "T1260W",
-    "variant": "W",
-    "size": "MED",
+    "style": "T1220Y",
+    "variant": "Y",
+    "size": "SML",
     "firstName": "",
-    "lastName": "",
-    "player": 21
+    "lastName": "HANNAH",
+    "player": 3,
+    "position": ""
   },
   {
-    "style": "T1260W",
-    "variant": "W",
-    "size": "MED",
+    "style": "T1220Y",
+    "variant": "Y",
+    "size": "SML",
     "firstName": "",
-    "lastName": "",
-    "player": 10
+    "lastName": "HORTON",
+    "player": 6,
+    "position": ""
   },
   {
-    "style": "T1260W",
-    "variant": "W",
+    "style": "T1220Y",
+    "variant": "Y",
     "size": "MED",
     "firstName": "",
-    "lastName": "",
-    "player": 2
+    "lastName": "FIELDS",
+    "player": 15,
+    "position": ""
   },
   {
-    "style": "T1260W",
-    "variant": "W",
+    "style": "T1220Y",
+    "variant": "Y",
     "size": "MED",
     "firstName": "",
-    "lastName": "",
-    "player": 3
+    "lastName": "ZOLLICOFFER",
+    "player": 24,
+    "position": ""
   },
   {
-    "style": "T1260W",
-    "variant": "W",
+    "style": "T1220Y",
+    "variant": "Y",
     "size": "LGE",
     "firstName": "",
-    "lastName": "",
-    "player": 7
+    "lastName": "BROWNING",
+    "player": 11,
+    "position": ""
   },
   {
-    "style": "T1260W",
-    "variant": "W",
+    "style": "T1220Y",
+    "variant": "Y",
     "size": "LGE",
     "firstName": "",
-    "lastName": "",
-    "player": 23
+    "lastName": "BUSBY",
+    "player": 23,
+    "position": ""
+  },
+  {
+    "style": "T1220Y",
+    "variant": "Y",
+    "size": "LGE",
+    "firstName": "",
+    "lastName": "GRIFFITH",
+    "player": 0,
+    "position": ""
+  },
+  {
+    "style": "T1220Y",
+    "variant": "Y",
+    "size": "LGE",
+    "firstName": "",
+    "lastName": "REED",
+    "player": 7,
+    "position": ""
   }
 ]
