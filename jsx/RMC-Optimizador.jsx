@@ -1,3 +1,4 @@
+//Creado por Jose Alberto Villarreal - RMC Linares 2026
 #include "components/dropdowns.jsx"
 #include "components/leerJson.jsx"
 #include "components/guardarPDFs.jsx"
@@ -15,7 +16,7 @@ function main() {
     var filtered = procesarJSON(config.size, config.style);
     
     // Procesar los PDFs con los datos filtrados
-    guardarPDFs(filtered)
+    guardarPDFs(filtered, config);
 
     alert("Proceso terminado.");
     app.activeDocument.close(SaveOptions.DONOTSAVECHANGES);

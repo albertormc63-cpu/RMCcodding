@@ -1,92 +1,119 @@
 [
   {
-    "style": "T1220Y",
-    "variant": "Y",
-    "size": "SML",
+    "style": "R4054A",
+    "variant": "A",
+    "size": "LGE",
     "firstName": "",
-    "lastName": "BLACKBURN",
-    "player": 22,
-    "position": ""
-  },
-  {
-    "style": "T1220Y",
-    "variant": "Y",
-    "size": "SML",
-    "firstName": "",
-    "lastName": "BLACKBURN",
-    "player": 4,
-    "position": ""
-  },
-  {
-    "style": "T1220Y",
-    "variant": "Y",
-    "size": "SML",
-    "firstName": "",
-    "lastName": "HANNAH",
-    "player": 3,
-    "position": ""
-  },
-  {
-    "style": "T1220Y",
-    "variant": "Y",
-    "size": "SML",
-    "firstName": "",
-    "lastName": "HORTON",
+    "lastName": "RAY",
     "player": 6,
     "position": ""
   },
   {
-    "style": "T1220Y",
-    "variant": "Y",
-    "size": "MED",
+    "style": "R4054A",
+    "variant": "A",
+    "size": "LGE",
     "firstName": "",
-    "lastName": "FIELDS",
-    "player": 15,
-    "position": ""
-  },
-  {
-    "style": "T1220Y",
-    "variant": "Y",
-    "size": "MED",
-    "firstName": "",
-    "lastName": "ZOLLICOFFER",
+    "lastName": "SKONIER",
     "player": 24,
     "position": ""
   },
   {
-    "style": "T1220Y",
-    "variant": "Y",
+    "style": "R4054A",
+    "variant": "A",
     "size": "LGE",
     "firstName": "",
-    "lastName": "BROWNING",
-    "player": 11,
+    "lastName": "SIR LOUIS",
+    "player": 3,
     "position": ""
   },
   {
-    "style": "T1220Y",
-    "variant": "Y",
+    "style": "R4054A",
+    "variant": "A",
     "size": "LGE",
     "firstName": "",
-    "lastName": "BUSBY",
-    "player": 23,
+    "lastName": "FRAZIER",
+    "player": 55,
     "position": ""
   },
   {
-    "style": "T1220Y",
-    "variant": "Y",
+    "style": "R4054A",
+    "variant": "A",
     "size": "LGE",
     "firstName": "",
-    "lastName": "GRIFFITH",
-    "player": 0,
+    "lastName": "HERSHBERGER",
+    "player": 10,
     "position": ""
   },
   {
-    "style": "T1220Y",
-    "variant": "Y",
+    "style": "R4054A",
+    "variant": "A",
     "size": "LGE",
     "firstName": "",
-    "lastName": "REED",
-    "player": 7,
+    "lastName": "BOVA",
+    "player": 46,
+    "position": ""
+  },
+  {
+    "style": "R4054A",
+    "variant": "A",
+    "size": "LGE",
+    "firstName": "",
+    "lastName": "",
+    "player": 5,
+    "position": ""
+  },
+  {
+    "style": "R4054A",
+    "variant": "A",
+    "size": "XLG",
+    "firstName": "",
+    "lastName": "SEFIK",
+    "player": 42,
+    "position": ""
+  },
+  {
+    "style": "R4054A",
+    "variant": "A",
+    "size": "XLG",
+    "firstName": "",
+    "lastName": "SLOVIK",
+    "player": 52,
+    "position": ""
+  },
+  {
+    "style": "R4054A",
+    "variant": "A",
+    "size": "XLG",
+    "firstName": "",
+    "lastName": "FRONK",
+    "player": 25,
+    "position": ""
+  },
+  {
+    "style": "R4054A",
+    "variant": "A",
+    "size": "XLG",
+    "firstName": "",
+    "lastName": "WIELINSKI",
+    "player": 2,
+    "position": ""
+  },
+  {
+    "style": "R4054A",
+    "variant": "A",
+    "size": "XLG",
+    "firstName": "",
+    "lastName": "",
+    "player": 44,
+    "position": ""
+  },
+  {
+    "style": "R4054A",
+    "variant": "A",
+    "size": "4XL",
+    "firstName": "",
+    "lastName": "JACOBS",
+    "player": 33,
     "position": ""
   }
 ]

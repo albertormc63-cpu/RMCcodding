@@ -27,7 +27,45 @@ function dialogDropdowns() {
     ]);
     sizeDropdown.selection = 0;
 
+    //=========================
+    // ===== OPCIONES AVANZADAS
+    //=========================
+        var advPanel = grupo.add("panel", undefined, "Opciones avanzadas");
+        advPanel.orientation = "column";
+        advPanel.alignChildren = ["left", "center"];
+
+        // Checkbox activar
+        var advCheckbox = advPanel.add("checkbox", undefined, "Activar opciones avanzadas");
+
+        // Grupo interno
+        var advGroup = advPanel.add("group");
+        advGroup.orientation = "column";
+
+        // Dirección del texto
+        var orientGroup = advGroup.add("group");
+        orientGroup.add("statictext", undefined, "Orientación texto:");
+
+        var orientDropdown = orientGroup.add("dropdownlist", undefined, ["Horizontal", "Vertical"]);
+        orientDropdown.selection = 0;
+
+        // Escala manual
+        var scaleGroup = advGroup.add("group");
+        scaleGroup.add("statictext", undefined, "Horizontal Scale:");
+
+        var scaleInput = scaleGroup.add("edittext", undefined, "100");
+        scaleInput.characters = 5;
+
+        // Desactivar por defecto
+        advGroup.enabled = false;
+
+        // Toggle
+        advCheckbox.onClick = function () {
+            advGroup.enabled = advCheckbox.value;
+        };
+        
+    //=========================
     // BOTONES
+    //=========================
     var btnGroup = grupo.add("group");
     btnGroup.alignment = "right";
 
@@ -39,7 +77,10 @@ function dialogDropdowns() {
 
         return {
             style: styleDropdown.selection.text,
-            size: sizeDropdown.selection.text
+            size: sizeDropdown.selection.text,
+            advanced: advCheckbox.value,
+            orientation: orientDropdown.selection.text,
+            scale: advCheckbox.value ? Number(scaleInput.text) : 100
         };
 
     } else {
@@ -80,6 +121,7 @@ function flujoControlado(){
         }
 
         if (validarArchivo(config.style, config.size)) {
+            // alert(config.style + " - " + config.size + " Orientacion: " + config.orientation + " Escala: " + config.scale);
             break; // ✅ sale del loop si todo está bien
         }
 
