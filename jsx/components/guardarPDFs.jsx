@@ -8,6 +8,8 @@ function guardarPDFs(filtered) {
 
         var numeroNuevo = filtered[j].player;
 
+        var nombreFirst = filtered[j].firstName;
+        var nombreLast = filtered[j].lastName;
         var nombreNuevo = (
             filtered[j].firstName + " " + filtered[j].lastName
         ).replace(/^\s+|\s+$/g, "");
@@ -15,10 +17,7 @@ function guardarPDFs(filtered) {
         var positionNueva = filtered[j].position;
 
         // 🔥 REEMPLAZAR TEXTOS
-        reemplazarTextos(doc, numeroNuevo, nombreNuevo, positionNueva, config);
-
-        // 🔥 GENERAR NOMBRE
-        // var nombreGuardar = generarNombreArchivo(doc, numeroNuevo, nombreNuevo);
+        reemplazarTextos(doc, numeroNuevo, nombreFirst, nombreLast, nombreNuevo, positionNueva, config);
 
         // 🔥 GUARDAR
         guardarArchivo(doc, numeroNuevo, nombreNuevo);
@@ -29,7 +28,7 @@ function guardarPDFs(filtered) {
     }
 }
 
-function reemplazarTextos(doc, numeroNuevo, nombreNuevo, positionNueva, config) {
+function reemplazarTextos(doc, numeroNuevo, nombreFirst, nombreLast, nombreNuevo, positionNueva, config) {
 
     for (var k = 0; k < doc.textFrames.length; k++) {
 
@@ -37,8 +36,32 @@ function reemplazarTextos(doc, numeroNuevo, nombreNuevo, positionNueva, config) 
 
         // NUMERO
         if (tf.contents == "27") {
-            tf.contents = (numeroNuevo != null && numeroNuevo != "") ? numeroNuevo :
-                          (numeroNuevo === 0 ? 0 : " ");
+            tf.contents = (numeroNuevo != null && numeroNuevo !== "") 
+            ? numeroNuevo 
+            : " ";
+        }
+        /////CAMBIO DE FIRST
+        if (tf.contents == "FIRST"){
+            if (nombreFirst != "") {
+
+                tf.contents = nombreFirst;
+                // ajustarNombre(tf, doc, config);
+
+            } else {
+                tf.contents = " ";
+            }
+        }
+
+        /////CAMBIO DE LAST
+        if (tf.contents == "LAST"){
+            if (nombreLast != "") {
+
+                tf.contents = nombreLast;
+                // ajustarNombre(tf, doc, config);
+
+            } else {
+                tf.contents = " ";
+            }
         }
 
         // NAME
@@ -57,6 +80,9 @@ function reemplazarTextos(doc, numeroNuevo, nombreNuevo, positionNueva, config) 
         // POSITION
         if (tf.contents == "ATT" && positionNueva != "") {
             tf.contents = positionNueva;
+        }
+        else if (tf.contents == "ATT " && (positionNueva == "" || positionNueva == null)) {
+            tf.contents = " ";
         }
     }
 }
@@ -92,15 +118,10 @@ function ajustarNombre(tf, doc, config) {
             var alto = tf.height;
 
             if (alto > maxHeight) {
-                alert("⚠️ El texto es demasiado alto para la zona segura, se ajustará automáticamente.");
+                // alert("⚠️ El texto es demasiado alto para la zona segura, se ajustará automáticamente.");
                 var escala = (maxHeight / alto) * 100 * buffer;
                 tf.textRange.characterAttributes.horizontalScale = escala;
             }
-            // // 🔥 LOOP DE AJUSTE
-            // while (tf.height > maxHeight * buffer && scale > minScale) {
-            //     scale -= 1;
-            //     tf.textRange.characterAttributes.horizontalScale = scale;
-            // }
 
         } else {
             alert("⚠️ No se encontró ZONASAFE del texto, agrega un rectángulo con ese nombre para ajustar el tamaño del texto automáticamente.");
@@ -113,11 +134,6 @@ function ajustarNombre(tf, doc, config) {
                 var escala = (maxWidth / ancho) * 100 * buffer;
                 tf.textRange.characterAttributes.horizontalScale = escala;
             }
-            // // 🔥 LOOP DE AJUSTE
-            // while (tf.width > maxWidth * buffer && scale > minScale) {
-            //     scale -= 1;
-            //     tf.textRange.characterAttributes.horizontalScale = scale;
-            // }
 
         } else {
             alert("⚠️ No se encontró ZONASAFE del texto, agrega un rectángulo con ese nombre para ajustar el tamaño del texto automáticamente.");

@@ -1,0 +1,267 @@
+Option Explicit
+
+'==============================
+' MACRO PRINCIPAL
+'==============================
+Sub ProcesarOrden()
+
+    Dim hoja As Worksheet
+    Set hoja = ActiveSheet
+    
+    'Validación básica
+    If hoja.Cells(17, 1).Value = "" Then
+        MsgBox "No hay datos para procesar", vbExclamation
+        Exit Sub
+    End If
+    
+    '?? CONVERTIR PLAYER# A NÚMERO (POR SI HAY TEXTO)
+    Call ConvertirPlayerANumero(hoja)
+    '?? 1. ORDENAR (con tallas personalizadas)
+    Call OrdenarDatos(hoja)
+    
+    '?? 2. FORMATO
+    Call AplicarFormato(hoja)
+    
+    '?? 3. BORDES
+    Call AplicarBordesBase(hoja)
+    Call BordesPorStyle(hoja)
+    Call BordesPorSize(hoja)
+    
+    MsgBox "Orden procesada correctamente", vbInformation
+    '?? 4. IMPRIMIR POR STYLE
+    'Call ImprimirPorStyle(hoja)
+
+End Sub
+
+'==============================
+' DETECTAR ÚLTIMA FILA
+'==============================
+Function ObtenerUltimaFila(hoja As Worksheet) As Long
+    ObtenerUltimaFila = hoja.Cells(hoja.Rows.Count, 1).End(xlUp).Row
+End Function
+
+'==============================
+' DETECTAR ÚLTIMA COLUMNA (ROBUSTO)
+'==============================
+Function ObtenerUltimaColumna(hoja As Worksheet) As Long
+
+    Dim ultimaFila As Long
+    Dim ultimaColumna As Long
+    Dim i As Long
+    Dim colTemp As Long
+    
+    ultimaFila = ObtenerUltimaFila(hoja)
+    ultimaColumna = 1
+    
+    For i = 17 To ultimaFila
+        colTemp = hoja.Cells(i, hoja.Columns.Count).End(xlToLeft).Column
+        
+        If colTemp > ultimaColumna Then
+            ultimaColumna = colTemp
+        End If
+    Next i
+    
+    ObtenerUltimaColumna = ultimaColumna
+
+End Function
+
+'==============================
+' ORDENAR DATOS (CON TALLAS PRO)
+'==============================
+Sub OrdenarDatos(hoja As Worksheet)
+
+    Dim ultimaFila As Long
+    Dim ultimaColumna As Long
+    
+    ultimaFila = ObtenerUltimaFila(hoja)
+    ultimaColumna = ObtenerUltimaColumna(hoja)
+    
+    '?? Orden personalizado de tallas
+    Application.AddCustomList Array("XSM", "SML", "MED", "LGE", "XLG", "2XL", "3XL", "4XL", "ALL")
+    
+    With hoja.Sort
+        .SortFields.Clear
+        
+        'Style
+        .SortFields.Add Key:=hoja.Range("A17:A" & ultimaFila), Order:=xlAscending
+        
+        'Size (orden personalizado)
+        .SortFields.Add Key:=hoja.Range("D17:D" & ultimaFila), _
+            Order:=xlAscending, CustomOrder:="XSM,SML,MED,LGE,XLG,2XL,3XL,4XL,ALL"
+        
+        'Player#
+        .SortFields.Add Key:=hoja.Range("G17:G" & ultimaFila), Order:=xlAscending
+        
+        .SetRange hoja.Range(hoja.Cells(17, 1), hoja.Cells(ultimaFila, ultimaColumna))
+        .Header = xlNo
+        .Apply
+    End With
+
+End Sub
+
+'==============================
+' FORMATO
+'==============================
+Sub AplicarFormato(hoja As Worksheet)
+
+    Dim ultimaFila As Long
+    Dim ultimaColumna As Long
+    
+    ultimaFila = ObtenerUltimaFila(hoja)
+    ultimaColumna = ObtenerUltimaColumna(hoja)
+    
+    With hoja.Range(hoja.Cells(17, 1), hoja.Cells(ultimaFila, ultimaColumna))
+        .Font.Name = "Arial"
+        .Font.Size = 12
+        .RowHeight = 20
+    End With
+
+End Sub
+
+'==============================
+' BORDES BASE
+'==============================
+Sub AplicarBordesBase(hoja As Worksheet)
+
+    Dim ultimaFila As Long
+    Dim ultimaColumna As Long
+    
+    ultimaFila = ObtenerUltimaFila(hoja)
+    ultimaColumna = ObtenerUltimaColumna(hoja)
+    
+    'Limpiar bordes anteriores
+    hoja.Cells.Borders.LineStyle = xlNone
+    
+    With hoja.Range(hoja.Cells(17, 1), hoja.Cells(ultimaFila, ultimaColumna)).Borders
+        .LineStyle = xlContinuous
+        .Weight = xlThin
+    End With
+
+End Sub
+
+'==============================
+' BORDES POR STYLE
+'==============================
+Sub BordesPorStyle(hoja As Worksheet)
+
+    Dim ultimaFila As Long
+    Dim ultimaColumna As Long
+    Dim i As Long
+    
+    ultimaFila = ObtenerUltimaFila(hoja)
+    ultimaColumna = ObtenerUltimaColumna(hoja)
+    
+    For i = 17 To ultimaFila - 1
+        
+        If hoja.Cells(i, 1).Value <> hoja.Cells(i + 1, 1).Value Then
+            
+            With hoja.Range(hoja.Cells(i, 1), hoja.Cells(i, ultimaColumna + 1)).Borders(xlEdgeBottom)
+                .LineStyle = xlContinuous
+                .Weight = xlThick
+            End With
+            
+        End If
+        
+    Next i
+
+End Sub
+
+'==============================
+' BORDES POR SIZE
+'==============================
+Sub BordesPorSize(hoja As Worksheet)
+
+    Dim ultimaFila As Long
+    Dim ultimaColumna As Long
+    Dim i As Long
+    
+    ultimaFila = ObtenerUltimaFila(hoja)
+    ultimaColumna = ObtenerUltimaColumna(hoja)
+    
+    For i = 17 To ultimaFila - 1
+        
+        If hoja.Cells(i, 1).Value = hoja.Cells(i + 1, 1).Value Then
+            
+            If hoja.Cells(i, 4).Value <> hoja.Cells(i + 1, 4).Value Then
+                
+                With hoja.Range(hoja.Cells(i, 1), hoja.Cells(i, ultimaColumna)).Borders(xlEdgeBottom)
+                    .LineStyle = xlContinuous
+                    .Weight = xlThick
+                End With
+                
+            End If
+            
+        End If
+        
+    Next i
+
+End Sub
+
+'==============================
+' CONVERTIR PLAYER# A NÚMERO (POR SI HAY TEXTO)
+'==============================
+
+Sub ConvertirPlayerANumero(hoja As Worksheet)
+
+    Dim ultimaFila As Long
+    Dim i As Long
+    
+    ultimaFila = ObtenerUltimaFila(hoja)
+    
+    For i = 17 To ultimaFila
+        
+        If hoja.Cells(i, 7).Value <> "" Then
+            hoja.Cells(i, 7).Value = Val(hoja.Cells(i, 7).Value)
+        End If
+        
+    Next i
+
+End Sub
+
+'==============================
+' IMPRIMIR POR STYLE
+'==============================
+Sub ImprimirPorStyle(hoja As Worksheet)
+
+    Dim ultimaFila As Long
+    Dim ultimaColumna As Long
+    Dim estilos As New Collection
+    Dim i As Long
+    Dim style As Variant
+    Dim existe As Boolean
+    
+    ultimaFila = ObtenerUltimaFila(hoja)
+    ultimaColumna = ObtenerUltimaColumna(hoja)
+    
+    '🔹 Obtener estilos únicos (sin Dictionary)
+    On Error Resume Next
+    For i = 17 To ultimaFila
+        If hoja.Cells(i, 1).Value <> "" Then
+            estilos.Add hoja.Cells(i, 1).Value, CStr(hoja.Cells(i, 1).Value)
+        End If
+    Next i
+    On Error GoTo 0
+    
+    '🔹 Activar autofiltro
+    If Not hoja.AutoFilterMode Then
+        hoja.Range(hoja.Cells(16, 1), hoja.Cells(ultimaFila, ultimaColumna)).AutoFilter
+    End If
+    
+    '🔹 Loop por cada style
+    For Each style In estilos
+        
+        hoja.Range(hoja.Cells(16, 1), hoja.Cells(ultimaFila, ultimaColumna)) _
+            .AutoFilter Field:=1, Criteria1:=style
+        
+        '👉 Cambia a PrintPreview si quieres probar
+        ' hoja.PrintOut
+        hoja.PrintPreview 'Para revisar antes de imprimir
+        
+    Next style
+    
+    '🔹 Quitar filtro
+    If hoja.AutoFilterMode Then
+        hoja.AutoFilter.ShowAllData
+    End If
+
+End Sub

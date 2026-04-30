@@ -14,7 +14,7 @@
       "request": "launch",
       "name": "Testing",
       "hostAppSpecifier": "illustrator",
-      "script": "${workspaceFolder}/jsx/js/readExcel.jsx"
+      "script": "${workspaceFolder}/jsx/testing/ejecutar.jsx"
     }
   ]
 }

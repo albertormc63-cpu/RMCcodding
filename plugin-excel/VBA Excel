@@ -1,0 +1,121 @@
+Option Explicit
+
+'==============================
+' MACRO PRINCIPAL
+'==============================
+Sub ProcesarOrden()
+
+    Dim hoja As Worksheet
+    Set hoja = ActiveSheet
+    
+    'Validación básica
+    If hoja.Cells(17, 1).Value = "" Then
+        MsgBox "No hay datos para procesar", vbExclamation
+        Exit Sub
+    End If
+    
+    'Paso 1: Bordes base
+    Call AplicarBordesBase(hoja)
+    
+    'Paso 2: Separación por Style
+    Call BordesPorStyle(hoja)
+    
+    'Paso 3: Separación por Size
+    Call BordesPorSize(hoja)
+    
+    'MsgBox "Orden procesada correctamente", vbInformation
+
+End Sub
+
+'==============================
+' DETECTAR ÚLTIMA FILA
+'==============================
+Function ObtenerUltimaFila(hoja As Worksheet) As Long
+    ObtenerUltimaFila = hoja.Cells(hoja.Rows.Count, 1).End(xlUp).Row
+End Function
+
+'==============================
+' DETECTAR ÚLTIMA COLUMNA
+'==============================
+Function ObtenerUltimaColumna(hoja As Worksheet) As Long
+    ObtenerUltimaColumna = hoja.Cells(17, hoja.Columns.Count).End(xlToLeft).Column
+End Function
+
+'==============================
+' BORDES BASE (TODOS LOS BORDES)
+'==============================
+Sub AplicarBordesBase(hoja As Worksheet)
+
+    Dim ultimaFila As Long
+    Dim ultimaColumna As Long
+    
+    ultimaFila = ObtenerUltimaFila(hoja)
+    ultimaColumna = ObtenerUltimaColumna(hoja)
+    
+    With hoja.Range(hoja.Cells(17, 1), hoja.Cells(ultimaFila, ultimaColumna)).Borders
+        .LineStyle = xlContinuous
+        .Weight = xlThin
+    End With
+
+End Sub
+
+'==============================
+' BORDES POR CAMBIO DE STYLE
+'==============================
+Sub BordesPorStyle(hoja As Worksheet)
+
+    Dim ultimaFila As Long
+    Dim ultimaColumna As Long
+    Dim i As Long
+    
+    ultimaFila = ObtenerUltimaFila(hoja)
+    ultimaColumna = ObtenerUltimaColumna(hoja)
+    
+    For i = 17 To ultimaFila - 1
+        
+        'Si cambia el Style (columna A)
+        If hoja.Cells(i, 1).Value <> hoja.Cells(i + 1, 1).Value Then
+            
+            With hoja.Range(hoja.Cells(i, 1), hoja.Cells(i, ultimaColumna + 1)).Borders(xlEdgeBottom)
+                .LineStyle = xlContinuous
+                .Weight = xlThick
+            End With
+            
+        End If
+        
+    Next i
+
+End Sub
+
+'==============================
+' BORDES POR CAMBIO DE SIZE
+'==============================
+Sub BordesPorSize(hoja As Worksheet)
+
+    Dim ultimaFila As Long
+    Dim ultimaColumna As Long
+    Dim i As Long
+    
+    ultimaFila = ObtenerUltimaFila(hoja)
+    ultimaColumna = ObtenerUltimaColumna(hoja)
+    
+    For i = 17 To ultimaFila - 1
+        
+        'Solo si es el mismo Style
+        If hoja.Cells(i, 1).Value = hoja.Cells(i + 1, 1).Value Then
+            
+            'Si cambia el Size (columna D)
+            If hoja.Cells(i, 4).Value <> hoja.Cells(i + 1, 4).Value Then
+                
+                With hoja.Range(hoja.Cells(i, 1), hoja.Cells(i, ultimaColumna)).Borders(xlEdgeBottom)
+                    .LineStyle = xlContinuous
+                    .Weight = xlThick
+                End With
+                
+            End If
+            
+        End If
+        
+    Next i
+
+End Sub

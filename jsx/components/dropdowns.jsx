@@ -24,6 +24,7 @@ function dialogDropdowns() {
     sizeGroup.add("statictext", undefined, "Size:");
     var sizeDropdown = sizeGroup.add("dropdownlist", undefined, [
         "XSM","SML","MED","LGE","XLG","2XL","3XL","4XL", "ALL"
+        // "XSM","SML","MED","LGE","XLG","2XL","3XL","4XL", "ALL", "M/L", "L/X", "X/S"
     ]);
     sizeDropdown.selection = 0;
 

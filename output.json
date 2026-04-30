@@ -1,119 +1,173 @@
 [
   {
-    "style": "R4054A",
+    "style": "T1600A",
     "variant": "A",
-    "size": "LGE",
+    "size": "SML",
     "firstName": "",
-    "lastName": "RAY",
-    "player": 6,
+    "lastName": "LYNCH",
+    "player": "9",
     "position": ""
   },
   {
-    "style": "R4054A",
+    "style": "T1600A",
     "variant": "A",
-    "size": "LGE",
+    "size": "SML",
     "firstName": "",
-    "lastName": "SKONIER",
-    "player": 24,
+    "lastName": "BREZINSKI",
+    "player": "17",
     "position": ""
   },
   {
-    "style": "R4054A",
+    "style": "T1600A",
     "variant": "A",
-    "size": "LGE",
+    "size": "SML",
     "firstName": "",
-    "lastName": "SIR LOUIS",
-    "player": 3,
+    "lastName": "ss",
+    "player": "02",
     "position": ""
   },
   {
-    "style": "R4054A",
+    "style": "T1600A",
     "variant": "A",
-    "size": "LGE",
-    "firstName": "",
-    "lastName": "FRAZIER",
-    "player": 55,
-    "position": ""
-  },
-  {
-    "style": "R4054A",
-    "variant": "A",
-    "size": "LGE",
-    "firstName": "",
-    "lastName": "HERSHBERGER",
-    "player": 10,
-    "position": ""
-  },
-  {
-    "style": "R4054A",
-    "variant": "A",
-    "size": "LGE",
-    "firstName": "",
-    "lastName": "BOVA",
-    "player": 46,
-    "position": ""
-  },
-  {
-    "style": "R4054A",
-    "variant": "A",
-    "size": "LGE",
+    "size": "SML",
     "firstName": "",
     "lastName": "",
-    "player": 5,
+    "player": "20",
     "position": ""
   },
   {
-    "style": "R4054A",
+    "style": "T1600A",
     "variant": "A",
-    "size": "XLG",
+    "size": "SML",
     "firstName": "",
-    "lastName": "SEFIK",
-    "player": 42,
+    "lastName": "DAVID",
+    "player": "00",
     "position": ""
   },
   {
-    "style": "R4054A",
+    "style": "T1600A",
     "variant": "A",
-    "size": "XLG",
+    "size": "SML",
     "firstName": "",
-    "lastName": "SLOVIK",
-    "player": 52,
+    "lastName": "LUCSKAY",
+    "player": "09",
     "position": ""
   },
   {
-    "style": "R4054A",
+    "style": "T1600A",
     "variant": "A",
-    "size": "XLG",
+    "size": "MED",
     "firstName": "",
-    "lastName": "FRONK",
-    "player": 25,
+    "lastName": "GREENE",
+    "player": "0",
     "position": ""
   },
   {
-    "style": "R4054A",
+    "style": "T1600A",
     "variant": "A",
-    "size": "XLG",
-    "firstName": "",
-    "lastName": "WIELINSKI",
-    "player": 2,
-    "position": ""
-  },
-  {
-    "style": "R4054A",
-    "variant": "A",
-    "size": "XLG",
+    "size": "MED",
     "firstName": "",
     "lastName": "",
-    "player": 44,
+    "player": "20",
     "position": ""
   },
   {
-    "style": "R4054A",
+    "style": "T1600A",
     "variant": "A",
-    "size": "4XL",
+    "size": "SML",
     "firstName": "",
-    "lastName": "JACOBS",
-    "player": 33,
+    "lastName": "JANKOWSKI",
+    "player": "02",
+    "position": ""
+  },
+  {
+    "style": "T1600Y",
+    "variant": "Y",
+    "size": "MED",
+    "firstName": "",
+    "lastName": "POLIDORO",
+    "player": "2",
+    "position": ""
+  },
+  {
+    "style": "T1600Y",
+    "variant": "Y",
+    "size": "MED",
+    "firstName": "",
+    "lastName": "KING",
+    "player": "5",
+    "position": ""
+  },
+  {
+    "style": "T1600Y",
+    "variant": "Y",
+    "size": "MED",
+    "firstName": "",
+    "lastName": "HARRIMAN",
+    "player": "6",
+    "position": ""
+  },
+  {
+    "style": "T1600Y",
+    "variant": "Y",
+    "size": "MED",
+    "firstName": "",
+    "lastName": "USNICK",
+    "player": "12",
+    "position": ""
+  },
+  {
+    "style": "T1600Y",
+    "variant": "Y",
+    "size": "MED",
+    "firstName": "",
+    "lastName": "PRIMIANO",
+    "player": "17",
+    "position": ""
+  },
+  {
+    "style": "T1600Y",
+    "variant": "Y",
+    "size": "MED",
+    "firstName": "",
+    "lastName": "GRASSO",
+    "player": "18",
+    "position": ""
+  },
+  {
+    "style": "T1600Y",
+    "variant": "Y",
+    "size": "MED",
+    "firstName": "",
+    "lastName": "ZUCCATO",
+    "player": "21",
+    "position": ""
+  },
+  {
+    "style": "T1600Y",
+    "variant": "Y",
+    "size": "MED",
+    "firstName": "",
+    "lastName": "TOSCO",
+    "player": "21",
+    "position": ""
+  },
+  {
+    "style": "T1600Y",
+    "variant": "Y",
+    "size": "MED",
+    "firstName": "",
+    "lastName": "ALMASH",
+    "player": "23",
+    "position": ""
+  },
+  {
+    "style": "T1600Y",
+    "variant": "Y",
+    "size": "MED",
+    "firstName": "",
+    "lastName": "GRUBMAN",
+    "player": "29",
     "position": ""
   }
 ]

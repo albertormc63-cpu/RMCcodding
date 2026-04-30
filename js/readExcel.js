@@ -42,7 +42,11 @@ const rows = data.slice(16);
     size: row[idxSize],
     firstName: row[idxFirstName],
     lastName: row[idxLastName],
-    player: (row[idxPlayer] !== "") ? Number(row[idxPlayer]) : null,
+    // player: (row[idxPlayer] !== "") ? String(row[idxPlayer]).trim() : null,
+    player: (row[idxPlayer] !== "" && row[idxPlayer] != null)
+    ? String(row[idxPlayer]).replace(/\s+/g, "")
+    : null,
+    // player: (row[idxPlayer] !== "") ? Number(row[idxPlayer]) : null,
     position: row[idxPosition]
   }));
 
